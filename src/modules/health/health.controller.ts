@@ -1,8 +1,12 @@
-/*
-https://docs.nestjs.com/controllers#controllers
-*/
+import { Controller, Get } from '@nestjs/common';
 
-import { Controller } from '@nestjs/common';
-
-@Controller()
-export class HealthController {}
+@Controller('health')
+export class HealthController {
+  @Get()
+  check() {
+    return {
+      status: 'ok',
+      service: 'api-gateway',
+    };
+  }
+}
